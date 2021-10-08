@@ -44,7 +44,7 @@ public class Shot {
         try {
             column = Integer.parseInt(columnvalue);
         } catch (NumberFormatException e) {
-            throw new Exception("invalid volumn for shot.");
+            throw new Exception("invalid column for shot.");
         }
         column -= 1; // switch from 1-index to 0-index
         if (column > 9 || column < 0){
