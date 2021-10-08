@@ -15,4 +15,8 @@ public class Game {
     Player player2 = new Player(playerName);
     players.add(player2);
     }
+
+    public int getCurrentPlayerIndex() {
+        return currentPlayerIndex;
+    }
 }
