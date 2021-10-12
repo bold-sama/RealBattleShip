@@ -15,6 +15,11 @@ public class Game {
     Player player2 = new Player(playerName);
     players.add(player2);
     }
+    public void play(){
+        for(Player player: players){
+            player.placeShip();
+        }
+    }
 
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;

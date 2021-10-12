@@ -1,8 +1,7 @@
 public class App {
 
-    private Game game = new Game();
-
     public static void main(String[] args) throws Exception{
-
+         Game game = new Game();
+         game.play();
     }
 }

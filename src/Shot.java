@@ -1,6 +1,6 @@
+import java.awt.Point;
 public class Shot {
-    private int row;
-    private int column;
+    private Point location; // x is column and y is row
 
     /*
     |   the following logic has the rows signified by letters (starting with A),
@@ -13,25 +13,42 @@ public class Shot {
         String normailziedValue = humanValue.toLowerCase();
 
         //get the row from an attack
-        row = rowFromHumanValue(normailziedValue);
+        int row = rowFromHumanValue(normailziedValue);
 
         //get the column form the attack
-        column = columnForHumanValue(normailziedValue);
+        int column = columnForHumanValue(normailziedValue);
 
+        location = new Point(column, row);
+
+    }
+
+    public Shot(Point point) throws Exception{
+        if(point.x < 0 || point.x > 9){
+            throw new Exception("invalid column");
+        }
+        if (point.y < 0 || point.y > 9){
+            throw new Exception("invalid row");
+        }
     }
 
     public int getRow() {
-        return row;
+        return location.y;
     }
 
     public int getColumn() {
-        return column;
+        return location.x;
     }
+
+        public String getDescription(){
+        char firstLetter = (char)(location.y + 97);
+        String assembled = Character.toString(firstLetter) + Integer.toString(location.x +1);
+        return assembled;
+        }
 
     private int rowFromHumanValue(String value) throws Exception {
         //get the row from an attack
         char firstChar = value.charAt(0);
-        row = (int)firstChar - 97;  //lower case ascii number
+        int row = (int)firstChar - 97;  //lower case ascii number
         if (row > 9 || row < 0){
             throw new Exception("invalid Row");
         }
