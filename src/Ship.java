@@ -23,4 +23,12 @@ public class Ship {
         this.name = name;
         this.length = length;
     }
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
