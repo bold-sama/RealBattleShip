@@ -11,11 +11,13 @@ public class TargetGrid {
             }
         }
     }
+
     //return target cell at a given point
     public Cell cellAtPoint(Point givenPoint){
 
         return cells[givenPoint.x][givenPoint.y];
     }
+
 
     public Boolean shotHasNotBeenMadeYet(Shot shot){
         Point shotPoint = shot.getLocation();
