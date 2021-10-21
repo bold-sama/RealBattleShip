@@ -19,6 +19,27 @@ public class Game {
         for(Player player: players){
             player.placeShip();
         }
+
+        //start game
+        while(true){
+
+            //current player takes a shot
+            Player currentPlayer = players.get(currentPlayerIndex);
+            System.out.printf("%n you're up, %s!n", currentPlayer.getName());
+            Shot shot = currentPlayer.takeShot();
+            System.out.printf("%s fires at $s", currentPlayer.getName(), shot.getDescription());
+            //returning player gives result of shot
+            Player otherPlayer;
+            if(currentPlayerIndex == 0){
+                otherPlayer = players.get(1);
+            } else {
+                otherPlayer = players.get(0);
+            }
+            ShotResult result = otherPlayer.receiveShot(shot);
+            //check for end of game
+
+            //loop player index
+        }
     }
 
     public int getCurrentPlayerIndex() {

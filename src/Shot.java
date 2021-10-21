@@ -39,7 +39,11 @@ public class Shot {
         return location.x;
     }
 
-        public String getDescription(){
+    public static Point getLocation() {
+        return location;
+    }
+
+    public String getDescription(){
         char firstLetter = (char)(location.y + 97);
         String assembled = Character.toString(firstLetter) + Integer.toString(location.x +1);
         return assembled;

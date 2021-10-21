@@ -1,12 +1,24 @@
-public class OceanGrid {
-    private Cell[][] cells = new Cell[10][10];
+import java.awt.*;
 
+public class OceanGrid extends TargetGrid {
+    //constructor
     public OceanGrid(){
-        for(int x = 0; x < 10; x++){
-            for (int y = 0; y <10; y++){
-                cells[x][y] = new Cell();
+        //calls targetGrid constructor
+        super();
 
-            }
+    }
+    //figure out direction of ship
+    public Boolean placeShipAtPoints(){
+        
+    }
+
+    public ShotResult receiveShot(Shot shot){
+        Point affectedPoint = Shot.getLocation();
+        Cell affectedCell = cellAtPoint(affectedPoint);
+        CellState state = affectedCell.getState();
+        if(state == CellState.OCCUPIED){
+            affectedCell.setState(CellState.HIT);
+            return ShotResult.HIT;
         }
     }
 }
