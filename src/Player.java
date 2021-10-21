@@ -10,7 +10,8 @@ public class Player {
     public Player(String name){
         this.name = name;
         for(Entry<String,Integer> item : Ship.shipDefinitions.entrySet()){
-            Ship newShip = new Ship(item.getValue(), item.getKey(),)
+            Ship newShip = new Ship(item.getValue(), item.getKey(),);
+            ships.add(newShip);
         }
     }
 
