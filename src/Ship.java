@@ -31,4 +31,11 @@ public class Ship {
     public String getName() {
         return name;
     }
+
+    public boolean isSunk(){
+        if(hitCount == length){
+            return true;
+        }
+        return false;
+    }
 }

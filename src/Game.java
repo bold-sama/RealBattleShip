@@ -37,7 +37,9 @@ public class Game {
             }
             ShotResult result = otherPlayer.receiveShot(shot);
             //check for end of game
-
+                if(otherPlayer.allShipsAreSunk()){
+                    System.out.printf("GAME OVER winner is");
+                }
             //loop player index
         }
     }
