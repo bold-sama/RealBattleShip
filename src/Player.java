@@ -60,13 +60,7 @@ public class Player {
         return points;
     }
 
-    public boolean allShipsAreSunk(){
-
-    }
-
     public Shot takeShot(){
-        targetGrid.description();
-        oceanGrid.description();
         //create local shot from user
         Shot shot = null;
         //show grids

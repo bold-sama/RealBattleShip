@@ -11,7 +11,7 @@ public class Game {
     Player player1 = new Player(playerName);
     players.add(player1);
 
-    playerName = ConsoleHelper.getInput("enter the name of player one");
+    playerName = ConsoleHelper.getInput("enter the name of player two");
     Player player2 = new Player(playerName);
     players.add(player2);
     }
