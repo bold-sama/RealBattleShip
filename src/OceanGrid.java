@@ -44,12 +44,21 @@ public class OceanGrid extends TargetGrid {
     }
 
     public ShotResult receiveShot(Shot shot){
-        Point affectedPoint = Shot.getLocation();
+        Point affectedPoint = shot.getLocation();
         Cell affectedCell = cellAtPoint(affectedPoint);
         CellState state = affectedCell.getState();
+        Ship affectedShip = affectedCell.getShip();
         if(state == CellState.OCCUPIED){
             affectedCell.setState(CellState.HIT);
-            return ShotResult.HIT;
+            affectedShip.beenHit();
+            //check if ship was hit and sunk
+            if(affectedShip.beenSunk()){
+                ShotResult result = ShotResult.HITANDSUNK;
+                result.setLength(affectedShip.getLength());
+                result.setShipName(affectedShip.getName());
+                return result;
+            } else return ShotResult.HIT;
         }
+        return ShotResult.MISS;
     }
 }

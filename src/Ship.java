@@ -5,6 +5,7 @@ import java.util.Map;
 public class Ship {
     private String name;
     private int length;
+    private int hitCount;
 
     //creating ship dictionary
     public static final Map<String, Integer> shipDefinitions;
@@ -30,5 +31,16 @@ public class Ship {
 
     public String getName() {
         return name;
+    }
+
+    public void beenHit(){
+        hitCount ++;
+    }
+
+    public Boolean beenSunk(){
+        if(length == hitCount){
+            return true;
+        }
+        return false;
     }
 }

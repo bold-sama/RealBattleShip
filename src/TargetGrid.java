@@ -12,6 +12,17 @@ public class TargetGrid {
         }
     }
 
+    public void noteHit(Shot shot){
+        Point givenCell = shot.getLocation();
+        Cell cell = cellAtPoint(givenCell);
+        cell.setState(CellState.HIT);
+    }
+
+    public void noteMiss(Shot shot){
+        Point givenCell = shot.getLocation();
+        Cell cell = cellAtPoint(givenCell);
+        cell.setState(CellState.MISS);
+    }
     //return target cell at a given point
     public Cell cellAtPoint(Point givenPoint){
 
@@ -26,7 +37,7 @@ public class TargetGrid {
         if (state == CellState.EMPTY){
             return true;
         }
-        else return false;
+        return false;
     }
 
     public void description(){

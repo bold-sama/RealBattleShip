@@ -57,18 +57,18 @@ public class Player {
             }
             points[i] = new Point(nextX,nextY);
         }
-
         return points;
     }
 
     public Shot takeShot(){
+        targetGrid.description();
+        oceanGrid.description();
         //create local shot from user
         Shot shot = null;
         while(true){
             String input = ConsoleHelper.getInput("enter shot");
             try{
                 shot = new Shot(input);
-                return shot;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 continue;
@@ -79,7 +79,22 @@ public class Player {
             } else {
                 System.out.printf("you have already taken a shot at %s%n",input);
             }
+        } return shot;
+    }
+    public void receiveShotResult(Shot shot, ShotResult result){
+        switch(result){
+            case HIT, HITANDSUNK -> targetGrid.noteHit(shot);
+            case MISS -> targetGrid.noteMiss(shot);
         }
+    }
+
+    public Boolean allShipsSunk(){
+        for(Ship ships : ships){
+           if (!ships.beenSunk()){
+               return false;
+           }
+        }
+        return true;
     }
 
     public ShotResult receiveShot(Shot shot){

@@ -39,7 +39,7 @@ public class Shot {
         return location.x;
     }
 
-    public static Point getLocation() {
+    public Point getLocation() {
         return location;
     }
 

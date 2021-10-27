@@ -19,15 +19,13 @@ public class Game {
         for(Player player: players){
             player.placeShip();
         }
-
         //start game
         while(true){
-
             //current player takes a shot
             Player currentPlayer = players.get(currentPlayerIndex);
-            System.out.printf("%n you're up, %s!n", currentPlayer.getName());
+            System.out.printf("%n you're up, %s%n", currentPlayer.getName());
             Shot shot = currentPlayer.takeShot();
-            System.out.printf("%s fires at $s", currentPlayer.getName(), shot.getDescription());
+            System.out.printf("%s fires at %s", currentPlayer.getName(), shot.getDescription());
             //returning player gives result of shot
             Player otherPlayer;
             if(currentPlayerIndex == 0){
@@ -36,9 +34,25 @@ public class Game {
                 otherPlayer = players.get(0);
             }
             ShotResult result = otherPlayer.receiveShot(shot);
+            switch(result){
+                case HIT -> System.out.printf("--> HIT%n");
+
+                case MISS -> System.out.printf("--> MISS%n");
+
+                case HITANDSUNK -> System.out.printf("--> HIT and SUNK, you sunk my %S%n", result.getShipName());
+            }
+            currentPlayer.receiveShotResult(shot, result);
             //check for end of game
+            if(otherPlayer.allShipsSunk()){
+                System.out.printf("Game over!: the winner is --> %s%n", currentPlayer.getName());
+                break;
+            }
+
 
             //loop player index
+            if(currentPlayerIndex == 0){
+                currentPlayerIndex = 1;
+            } else currentPlayerIndex = 0;
         }
     }
 
