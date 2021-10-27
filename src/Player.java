@@ -60,11 +60,18 @@ public class Player {
         return points;
     }
 
+    public boolean allShipsAreSunk(){
+
+    }
+
     public Shot takeShot(){
         targetGrid.description();
         oceanGrid.description();
         //create local shot from user
         Shot shot = null;
+        //show grids
+        targetGrid.description();
+        oceanGrid.description();
         while(true){
             String input = ConsoleHelper.getInput("enter shot");
             try{
@@ -74,7 +81,7 @@ public class Player {
                 continue;
             }
             //no duplicate shots. can not take a shot that's been taken
-            if(targetGrid.shotHasNotBeenMadeYet(shot)){
+            if(targetGrid.shotHasNotBeenMadeYet(shot)) {
                 break;
             } else {
                 System.out.printf("you have already taken a shot at %s%n",input);
