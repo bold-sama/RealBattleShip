@@ -48,7 +48,6 @@ public class Game {
                 break;
             }
 
-
             //loop player index
             if(currentPlayerIndex == 0){
                 currentPlayerIndex = 1;

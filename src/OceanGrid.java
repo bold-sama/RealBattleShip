@@ -5,7 +5,6 @@ public class OceanGrid extends TargetGrid {
     public OceanGrid(){
         //calls targetGrid constructor
         super();
-
     }
     //figure out direction of ship
     public Boolean placeShipAtPoint(Ship ship, Point[] points){

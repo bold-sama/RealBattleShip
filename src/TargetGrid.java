@@ -29,7 +29,6 @@ public class TargetGrid {
         return cells[givenPoint.x][givenPoint.y];
     }
 
-
     public Boolean shotHasNotBeenMadeYet(Shot shot){
         Point shotPoint = shot.getLocation();
         Cell cell = cellAtPoint(shotPoint);
