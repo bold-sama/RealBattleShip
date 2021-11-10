@@ -33,10 +33,7 @@ public class TargetGrid {
         Point shotPoint = shot.getLocation();
         Cell cell = cellAtPoint(shotPoint);
         CellState state = cell.getState();
-        if (state == CellState.EMPTY){
-            return true;
-        }
-        return false;
+        return state == CellState.EMPTY;
     }
 
     public void description(){

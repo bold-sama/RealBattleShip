@@ -1,6 +1,11 @@
+import java.awt.*;
+import java.util.*;
+
 public class brodyAIPlayer extends Player {
 
-    public brodyAIPlayer() {
+    private ArrayList<Point> bracketShots = new ArrayList<Point>();
+
+    public brodyAIPlayer(){
         super("USS Bold");
     }
 
@@ -10,12 +15,19 @@ public class brodyAIPlayer extends Player {
     }
 
     @Override
-    public Shot takeShot() {
+    public Shot takeShot(){
         return null;
     }
 
     @Override
     public ShotResult receiveShot(Shot shot) {
         return oceanGrid.receiveShot(shot);
+    }
+    @Override
+    public void receiveShotResult(Shot shot, ShotResult result) {
+        super.receiveShotResult(shot, result);
+        if(result == ShotResult.MISS){
+            //CurrentPhase.RANDOM
+        }
     }
 }
