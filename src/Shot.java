@@ -1,7 +1,6 @@
 import java.awt.Point;
 public class Shot {
     private Point location; // x is column and y is row
-
     /*
     |   the following logic has the rows signified by letters (starting with A),
     |   columns signified as numbers(starting with 1). Values start at the upper
@@ -45,8 +44,7 @@ public class Shot {
 
     public String getDescription(){
         char firstLetter = (char)(location.y + 97);
-        String assembled = Character.toString(firstLetter) + Integer.toString(location.x +1);
-        return assembled;
+        return firstLetter + Integer.toString(location.x +1);
         }
 
     private int rowFromHumanValue(String value) throws Exception {

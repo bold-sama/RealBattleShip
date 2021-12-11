@@ -8,7 +8,7 @@ public class playerTests {
 
     @Before
     public void init() {
-        player = new Player("Test Player1");
+        player = new Humanplayer("Test Player1");
     }
 
     @Test
